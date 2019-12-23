@@ -78,7 +78,7 @@ _apache_packages_install:
     - httpd
 
 # Detected OS
-my_os: ansible_distribution + '_' + ansible_distribution_major_version
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
 
 # Templates Copy
 apache_templates_copy: "{{ _apache_templates_copy['all']
