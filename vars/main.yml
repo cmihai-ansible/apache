@@ -1,0 +1,105 @@
+---
+# vars file for packages
+
+# Configuration templates to copy
+_apache_templates_copy:
+  all:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  CentOS_7:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  RedHat_7:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  CentOS_8:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  RedHat_8:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  Fedora_31:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+
+# Services to enable
+_apache_services_enable:
+  all: []
+  CentOS_7:
+    - httpd
+  RedHat_7:
+    - httpd
+  CentOS_8:
+    - httpd
+  RedHat_8:
+    - httpd
+  Fedora_31:
+    - httpd
+
+# Repo RPM packages
+_apache_packages_repos:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora31: []
+
+# Remove packages: uninstall if found
+_apache_packages_remove:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# Prereq packages: they get installed first
+_apache_packages_prereq:
+  all: []
+  CentOS_7: []
+  RedHat_7: []
+  CentOS_8: []
+  RedHat_8: []
+  Fedora_31: []
+
+# install packages
+_apache_packages_install:
+  all: []
+  CentOS_7:
+    - httpd
+  RedHat_7:
+    - httpd
+  CentOS_8:
+    - httpd
+  RedHat_8:
+    - httpd
+  Fedora_31:
+    - httpd
+
+# Detected OS
+my_os: ansible_distribution + '_' + ansible_distribution_major_version
+
+# Templates Copy
+apache_templates_copy: "{{ _apache_templates_copy['all']
+  | union ( _apache_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+apache_services_enable: "{{ _apache_services_enable['all']
+  | union ( _apache_services_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+apache_packages_remove: "{{ _apache_packages_remove['all']
+  | union ( _apache_packages_remove[my_os]
+  | default([]) ) }}"
+apache_packages_repos: "{{ _apache_packages_repos['all']
+  | union ( _apache_packages_repos[my_os]
+  | default([]) ) }}"
+apache_packages_prereq: "{{ _apache_packages_prereq['all']
+  | union ( _apache_packages_prepreq[my_os]
+  | default([]) ) }}"
+apache_packages_install: "{{ _apache_packages_install['all']
+  | union ( _apache_packages_install[my_os]
+  | default([]) ) }}"

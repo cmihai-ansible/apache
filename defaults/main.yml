@@ -1,0 +1,9 @@
+---
+# defaults file for apache
+
+apache_remove_packages: true
+apache_enable_service: true
+apache_copy_templates: true
+apache_firewall_configure: true
+apache_firewall_rules:
+  - service: http
