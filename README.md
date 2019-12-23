@@ -3,6 +3,8 @@ Role Name
 
 apache
 
+[![Build Status](https://travis-ci.org/cmihai-ansible/apache.svg?branch=master)](https://travis-ci.org/cmihai-ansible/apache)
+
 Requirements
 ------------
 
