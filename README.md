@@ -23,13 +23,12 @@ Role Variables
 --------------
 
 ```
-apache_remove_packages: true
 apache_enable_service: true
-apache_enable_selinux: true
-apache_enable_selinux: true
+apache_copy_templates: true
 apache_firewall_configure: true
 apache_firewall_rules:
-  - service:
+  - service: http
+  - service: https
 ```
 
 Dependencies
