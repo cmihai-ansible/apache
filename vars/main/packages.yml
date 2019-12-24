@@ -1,7 +1,7 @@
 ---
 # Install packages
 _apache_packages_install:
-  all:
+  all: []
   CentOS_7:
     - httpd
   RedHat_7:
