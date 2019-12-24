@@ -3,7 +3,7 @@
 command:
   help:
     exit-status: 0
-    exec: "systemctl is-active httpd"
+    exec: "systemctl is-active apache"
     stdout:
       - "/active/"
     stderr: []

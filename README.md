@@ -5,6 +5,15 @@ apache
 
 [![Build Status](https://travis-ci.org/cmihai-ansible/apache.svg?branch=master)](https://travis-ci.org/cmihai-ansible/apache)
 
+Ansible galaxy:
+---------------
+
+[https://galaxy.ansible.com/crivetimihai/apache(https://galaxy.ansible.com/crivetimihai/apache)
+
+```bash
+ansible-galaxy install crivetimihai.apache
+```
+
 Requirements
 ------------
 
@@ -16,6 +25,8 @@ Role Variables
 ```
 apache_remove_packages: true
 apache_enable_service: true
+apache_enable_selinux: true
+apache_enable_selinux: true
 apache_firewall_configure: true
 apache_firewall_rules:
   - service:
@@ -45,8 +56,7 @@ Example Playbook
         apache_enable_service: true
         apache_firewall_configure: true
         apache_firewall_rules:
-          - service: http
-          - service: https
+          - service:
       tags: apache
 ```
 

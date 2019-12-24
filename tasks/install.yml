@@ -1,25 +1,6 @@
 ---
 # Install apache packages
 
-- name: unwanted packages are removed
-  package:
-    name: "{{ apache_packages_remove }}"
-    state: absent
-  become: true
-  when: apache_remove_packages
-
-- name: prereq repositories are installed
-  package:
-    name: "{{ apache_packages_repos }}"
-    state: present
-  become: true
-
-- name: prereq packages are installed
-  package:
-    name: "{{ apache_packages_prereq }}"
-    state: present
-  become: true
-
 - name: packages are installed
   package:
     name: "{{ apache_packages_install }}"

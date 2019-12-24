@@ -1,0 +1,21 @@
+---
+# Configuration templates to copy
+_apache_templates_copy:
+  all:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  CentOS_7:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  RedHat_7:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  CentOS_8:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  RedHat_8:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  Fedora_31:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf

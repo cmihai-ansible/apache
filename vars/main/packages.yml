@@ -1,0 +1,14 @@
+---
+# Install packages
+_apache_packages_install:
+  all:
+  CentOS_7:
+    - httpd
+  RedHat_7:
+    - httpd
+  CentOS_8:
+    - httpd
+  RedHat_8:
+    - httpd
+  Fedora_31:
+    - httpd
