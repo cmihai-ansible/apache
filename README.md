@@ -13,6 +13,13 @@ Requirements
 Role Variables
 --------------
 
+```
+apache_remove_packages: true
+apache_enable_service: true
+apache_firewall_configure: true
+apache_firewall_rules:
+  - service:
+```
 
 Dependencies
 ------------
@@ -22,20 +29,26 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - role: apache
+```yaml
+---
+- name: Install apache on localhost
+  hosts:
+    - localhost
+  connection: local
 
-    - name: set tuned state
+  tasks:
+    - name: apache is configured
       import_role:
-        name: apache
+        name: crivetimihai.apache
       vars:
         apache_remove_packages: true
         apache_enable_service: true
         apache_firewall_configure: true
         apache_firewall_rules:
-          - service: service_name
+          - service: http
+          - service: https
       tags: apache
+```
 
 License
 -------
