@@ -51,11 +51,12 @@ Example Playbook
       import_role:
         name: crivetimihai.apache
       vars:
-        apache_remove_packages: true
         apache_enable_service: true
+        apache_copy_templates: true
         apache_firewall_configure: true
         apache_firewall_rules:
-          - service:
+          - service: http
+          - service: https
       tags: apache
 ```
 
