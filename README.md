@@ -8,7 +8,7 @@ apache
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/crivetimihai/apache(https://galaxy.ansible.com/crivetimihai/apache)
+[https://galaxy.ansible.com/crivetimihai/apache](https://galaxy.ansible.com/crivetimihai/apache)
 
 ```bash
 ansible-galaxy install crivetimihai.apache
