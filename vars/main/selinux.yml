@@ -8,3 +8,4 @@ _apache_selinux_enable:
   RedHat_8: []
   Fedora_31: []
   Debian_10: []
+  Ubuntu_18: []

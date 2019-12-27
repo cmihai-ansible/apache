@@ -20,3 +20,6 @@ _apache_templates_copy:
   Debian_10:
     - src: apache2.conf.j2
       dest: /etc/apache2/apache2.conf
+  Ubuntu_18:
+    - src: apache2.conf.j2
+      dest: /etc/apache2/apache2.conf

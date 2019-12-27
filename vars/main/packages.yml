@@ -14,3 +14,5 @@ _apache_packages_install:
     - httpd
   Debian_10:
     - apache2
+  Ubuntu_18:
+    - apache2
