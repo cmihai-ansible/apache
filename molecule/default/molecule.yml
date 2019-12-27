@@ -11,7 +11,7 @@ lint:
   options:
     config-file: molecule/resources/yaml-lint.yml
 platforms:
-  - name: "{{ cookiecutter.role_name }}-${CONTAINER_DISTRO:-centos}_${CONTAINER_VERSION:-7}"
+  - name: "apache-${CONTAINER_DISTRO:-centos}_${CONTAINER_VERSION:-7}"
     image: "${CONTAINER_DISTRO:-centos}:${CONTAINER_VERSION:-7}"
     registry:
       url: "${CONTAINER_REGISTRY:-docker.io}"
