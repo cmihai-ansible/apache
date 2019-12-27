@@ -30,7 +30,7 @@ env:
       CONTAINER_COMMAND="/usr/sbin/init"
     - >
       CONTAINER_DISTRO=debian
-      CONTINER_VERSION=10
+      CONTAINER_VERSION=10
       CONTAINER_COMMAND=""
 
 install:
