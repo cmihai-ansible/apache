@@ -12,3 +12,5 @@ _apache_services_enable:
     - httpd
   Fedora_31:
     - httpd
+  Debian_10:
+    - httpd

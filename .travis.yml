@@ -6,11 +6,12 @@ env:
   global:
     - ROLE_NAME: apache
   matrix:
-    - CONTAINER_DISTRO=centos CONTAINER_VERSION=7
-    - CONTAINER_DISTRO=centos CONTAINER_VERSION=8
-    - CONTAINER_DISTRO=fedora CONTAINER_VERSION=31
-    - CONTAINER_REGISTRY="registry.access.redhat.com/ubi7" CONTAINER_DISTRO=ubi CONTAINER_VERSION=latest
-    - CONTAINER_REGISTRY="registry.access.redhat.com/ubi8" CONTAINER_DISTRO=ubi CONTAINER_VERSION=latest
+    - CONTAINER_DISTRO=centos CONTAINER_VERSION=7 CONTAINER_COMMAND="/usr/sbin/init"
+    - CONTAINER_DISTRO=centos CONTAINER_VERSION=8 CONTAINER_COMMAND="/usr/sbin/init"
+    - CONTAINER_DISTRO=fedora CONTAINER_VERSION=31 CONTAINER_COMMAND="/usr/sbin/init"
+    - CONTAINER_REGISTRY=registry.access.redhat.com/ubi7 CONTAINER_DISTRO=ubi CONTAINER_VERSION=latest CONTAINER_COMMAND="/usr/sbin/init"
+    - CONTAINER_REGISTRY=registry.access.redhat.com/ubi8 CONTAINER_DISTRO=ubi CONTAINER_VERSION=latest CONTAINER_COMMAND="/usr/sbin/init"
+    - CONTAINER_DISTRO=debian CONTINER_VERSION=10 CONTAINER_COMMAND=""
 
 install:
   # Install test dependencies.

@@ -19,3 +19,6 @@ _apache_templates_copy:
   Fedora_31:
     - src: httpd.conf.j2
       dest: /etc/httpd/conf/httpd.conf
+  Debian_10:
+    - src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf

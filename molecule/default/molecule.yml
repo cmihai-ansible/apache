@@ -20,7 +20,7 @@ platforms:
     pre_build_image: false
     volume_mounts:
       - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
-    command: "/usr/sbin/init"
+    command: ${CONTAINER_COMMAND:-""}
     environment:
       container: docker
 provisioner:
