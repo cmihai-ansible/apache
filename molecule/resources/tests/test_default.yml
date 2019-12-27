@@ -1,11 +1,11 @@
 # Molecule managed
 ---
 command:
-  help:
+  configtest:
     exit-status: 0
-    exec: "systemctl is-active httpd"
+    exec: "apachectl configtest 2>&1"
     stdout:
-      - "/active/"
+      - "/Syntax OK/"
     stderr: []
     timeout: 10000      # in milliseconds
     skip: false

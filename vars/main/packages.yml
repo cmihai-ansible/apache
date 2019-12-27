@@ -13,4 +13,4 @@ _apache_packages_install:
   Fedora_31:
     - httpd
   Debian_10:
-    - httpd
+    - apache2
