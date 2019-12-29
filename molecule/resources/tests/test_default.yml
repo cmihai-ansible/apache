@@ -9,3 +9,7 @@ command:
     stderr: []
     timeout: 10000      # in milliseconds
     skip: false
+port:
+  tcp:80:
+    listening: true
+    ip: []
