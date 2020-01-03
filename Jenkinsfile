@@ -15,15 +15,15 @@ pipeline {
       }
 
       stage('test') {
-        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin:~/.local/bin']) {
-           steps {
-              sh """
-              echo $PATH
-              ls ~/.local/bin
-              molecule test -s kvm
-              """
-           }
-        }
+         steps {
+            sh """
+            echo $PATH
+            ls ~/.local/bin
+            which molecule
+            which yamllint
+            molecule test -s kvm
+            """
+         }
       }
    }
 }
