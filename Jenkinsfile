@@ -9,6 +9,8 @@ pipeline {
         stage('Install tools') {
             steps {
                 sh """
+                python3 -m venv env
+                source env/bin/activate
                 pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
                 """
             }
@@ -16,11 +18,12 @@ pipeline {
         stage('Test') {
             steps {
                 sh """
+                source env/bin/activate
                 echo $PATH
                 echo $PWD
                 ls -la
                 which molecule
-                PATH=~/.local/bin:$PATH /var/lib/jenkins/.local/bin/molecule --debug test -s kvm
+                molecule --debug test -s kvm
                 """
             }
         }
