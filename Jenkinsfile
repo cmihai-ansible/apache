@@ -6,7 +6,7 @@ node() {
 
 	stage ("install ansible and molecule") {
 		sh """
-    pip3 install --user --upgrade molecule ansible
+    pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
 		"""
 	}
 
