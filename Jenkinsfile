@@ -17,6 +17,8 @@ pipeline {
       stage('test') {
          steps {
             sh """
+            echo $PATH
+            ls ~/.local/bin
             molecule test -s kvm
             """
          }
