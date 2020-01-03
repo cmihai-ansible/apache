@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "~/.local/bin:${env.PATH}"
+        PATH = "~/.local/bin:/usr/local/bin:${env.PATH}"
     }
 
     stages {
@@ -16,11 +16,11 @@ pipeline {
         stage('Test') {
             steps {
                 sh """
-                which molecule
-                molecule test -s kvm
                 echo $PATH
                 echo $PWD
                 ls -la
+                which molecule
+                molecule test -s kvm --debug
                 """
             }
         }
