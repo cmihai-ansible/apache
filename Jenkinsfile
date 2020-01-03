@@ -12,7 +12,7 @@ pipeline {
                 python3 -m venv ~/molecule-libvirt
                 source ~/molecule-libvirt/bin/activate
                 pip3 install --upgrade pip
-                pip3 install --upgrade molecule[docker] ansible yamllint ansible-lint python-vagrant
+                pip3 install --upgrade molecule molecule[docker] ansible yamllint ansible-lint python-vagrant
                 """
             }
         }
@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh """
                 source ~/molecule-libvirt/bin/activate
+                cd apache
                 echo $PATH
                 echo $PWD
                 ls -la
