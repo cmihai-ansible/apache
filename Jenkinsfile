@@ -18,7 +18,7 @@ pipeline {
          steps {
             sh """
             echo $PATH
-            ./jenkins.sh
+            molecule test -s kvm
             """
          }
       }
