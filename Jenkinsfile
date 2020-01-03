@@ -20,7 +20,7 @@ pipeline {
                 echo $PWD
                 ls -la
                 which molecule
-                PATH=~/.local/bin:$PATH /var/lib/jenkins/.local/bin/molecule test -s kvm --debug
+                PATH=~/.local/bin:$PATH /var/lib/jenkins/.local/bin/molecule --debug test -s kvm
                 """
             }
         }
