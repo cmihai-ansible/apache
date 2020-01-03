@@ -1,54 +1,31 @@
+pipeline {
+   agent any
 
-node() {
-  stage ("Checkout scm") {
-                checkout scm
-        }
+   environment {
+      PATH = "~/.local/bin:$PATH"
+   }
 
-        stage ("install ansible and molecule") {
-                sh """
-                pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
-                """
-        }
+   stages {
+      stage('checkout') {
+         steps {
+            checkout scm
+         }
+      }
 
-        stage ("molecule lint") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule lint -s kvm
-                """
-        }
+      stage('install tools') {
+         steps {
+            sh """
+            pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
+            """
+         }
+      }
 
-        stage ("molecule create") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule create -s kvm
-                """
-        }
-
-        stage ("molecule converge") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule converge -s kvm
-                """
-        }
-
-        stage ("molecule idempotence") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule idempotence -s kvm
-                """
-        }
-
-        stage ("molecule verify") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule verify -s kvm
-                """
-        }
-
-        stage ("molecule destroy") {
-                sh """
-                export PATH="~/.local/bin:$PATH"
-                ~/.local/bin/molecule destroy -s kvm
-                """
-        }
+      stage('test') {
+         steps {
+            sh """
+            molecule test -s kvm
+            """
+         }
+      }
+   }
 }
