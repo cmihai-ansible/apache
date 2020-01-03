@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh """
-                source env/bin/activate
+                source ~/molecule-libvirt/bin/activate
                 echo $PATH
                 echo $PWD
                 ls -la
