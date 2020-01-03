@@ -1,10 +1,17 @@
+agent any
+
+tools {
+  ansible '2.8'
+}
+
 environment {
-    PATH = '~/.local/bin:$PATH'
+  PATH = "~/.local/bin:$PATH"
 }
 
 node() {
   stage ("Checkout scm") {
 		checkout scm
+    pip3 install --user --upgrade molecule
 	}
 
 	stage ("molecule lint") {
