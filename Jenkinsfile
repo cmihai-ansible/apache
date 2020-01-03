@@ -15,13 +15,15 @@ pipeline {
       }
 
       stage('test') {
-         steps {
-            sh """
-            echo $PATH
-            ls ~/.local/bin
-            molecule test -s kvm
-            """
-         }
+        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin:~/.local/bin']) {
+           steps {
+              sh """
+              echo $PATH
+              ls ~/.local/bin
+              molecule test -s kvm
+              """
+           }
+        }
       }
    }
 }
