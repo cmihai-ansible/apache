@@ -1,41 +1,49 @@
-node() {
-  stage ("Checkout scm") {
-		checkout scm
-	}
+pipeline {
+  agent any
 
-	stage ("molecule lint") {
-		sh """
-		molecule -s kvm lint
-		"""
-	}
+  environment {
+      PATH = '~/.local/bin:$PATH'
+  }
 
-	stage ("molecule create") {
-		sh """
-		molecule -s kvm create
-		"""
-	}
+  stages {
+    stage ("Checkout scm") {
+  		checkout scm
+  	}
 
-	stage ("molecule converge") {
-		sh """
-		molecule -s kvm converge
-		"""
-	}
+  	stage ("molecule lint") {
+  		sh """
+  		molecule -s kvm lint
+  		"""
+  	}
 
-	stage ("molecule idempotence") {
-		sh """
-		molecule -s kvm idempotence
-		"""
-	}
+  	stage ("molecule create") {
+  		sh """
+  		molecule -s kvm create
+  		"""
+  	}
 
-	stage ("molecule verify") {
-		sh """
-		molecule -s kvm idempotence
-		"""
-	}
+  	stage ("molecule converge") {
+  		sh """
+  		molecule -s kvm converge
+  		"""
+  	}
 
-	stage ("molecule destroy") {
-		sh """
-		molecule -s kvm idempotence
-		"""
-	}
+  	stage ("molecule idempotence") {
+  		sh """
+  		molecule -s kvm idempotence
+  		"""
+  	}
+
+  	stage ("molecule verify") {
+  		sh """
+  		molecule -s kvm idempotence
+  		"""
+  	}
+
+  	stage ("molecule destroy") {
+  		sh """
+  		molecule -s kvm idempotence
+  		"""
+  	}
+  }
 }
