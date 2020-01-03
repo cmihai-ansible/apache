@@ -5,7 +5,7 @@ pipeline {
       PATH = '~/.local/bin:$PATH'
   }
 
-  node {
+  node() {
     stage ("Checkout scm") {
   		checkout scm
   	}
