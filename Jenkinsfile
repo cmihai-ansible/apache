@@ -1,9 +1,3 @@
-agent any
-
-tools {
-  ansible '2.8'
-}
-
 environment {
   PATH = "~/.local/bin:$PATH"
 }
