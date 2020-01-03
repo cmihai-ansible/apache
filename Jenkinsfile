@@ -1,15 +1,21 @@
-environment {
-  PATH = "~/.local/bin:$PATH"
-}
 
 node() {
+  environment {
+  PATH = "~/.local/bin:$PATH"
+  }
+
   stage ("Checkout scm") {
 		checkout scm
 	}
 
+	stage ("install ansible and molecule") {
+		sh """
+    pip3 install --user --upgrade molecule ansible
+		"""
+	}
+
 	stage ("molecule lint") {
 		sh """
-    pip3 install --user --upgrade molecule
 		molecule -s kvm lint
 		"""
 	}
