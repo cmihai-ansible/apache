@@ -5,6 +5,10 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
     }
 
+    dir('subDir') {
+        checkout scm
+    }
+
     stages {
         stage('Install tools') {
             steps {
