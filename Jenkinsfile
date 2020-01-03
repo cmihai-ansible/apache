@@ -18,10 +18,7 @@ pipeline {
          steps {
             sh """
             echo $PATH
-            ls ~/.local/bin
-            which molecule
-            which yamllint
-            /var/lib/jenkins/.local/bin/molecule test -s kvm
+            ./jenkins.sh
             """
          }
       }
