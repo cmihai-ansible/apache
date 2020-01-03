@@ -1,26 +1,22 @@
 pipeline {
-   agent any
+    agent any
 
-   environment {
-      PATH = "~/.local/bin:$PATH"
-   }
+    environment {
+        PATH = "~/.local/bin:${env.PATH}"
+    }
 
-   stages {
-      stage('install tools') {
-         steps {
-            sh """
-            pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
-            """
-         }
-      }
-
-      stage('test') {
-         steps {
-            sh """
-            echo $PATH
-            molecule test -s kvm
-            """
-         }
-      }
-   }
+    stages {
+        stage('Install tools') {
+            steps {
+                sh """
+                pip3 install --user --upgrade molecule[docker] ansible yamllint ansible-lint
+                """
+            }
+        }
+        stage('Test') {
+            steps {
+                sh "molecule test -s kvm"
+            }
+        }
+    }
 }
