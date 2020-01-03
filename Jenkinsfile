@@ -5,7 +5,7 @@ environment {
 node() {
   stage ("Checkout scm") {
 		checkout scm
-    pip3 install --user --upgrade molecule
+    sh "pip3 install --user --upgrade molecule"
 	}
 
 	stage ("molecule lint") {
