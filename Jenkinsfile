@@ -12,37 +12,37 @@ node() {
 
 	stage ("molecule lint") {
 		sh """
-		~/.local/bin/molecule -s kvm lint
+		~/.local/bin/molecule lint -s kvm
 		"""
 	}
 
 	stage ("molecule create") {
 		sh """
-		~/.local/bin/molecule -s kvm create
+		~/.local/bin/molecule create -s kvm
 		"""
 	}
 
 	stage ("molecule converge") {
 		sh """
-		~/.local/bin/molecule -s kvm converge
+		~/.local/bin/molecule converge -s kvm
 		"""
 	}
 
 	stage ("molecule idempotence") {
 		sh """
-		~/.local/bin/molecule -s kvm idempotence
+		~/.local/bin/molecule idempotence -s kvm
 		"""
 	}
 
 	stage ("molecule verify") {
 		sh """
-		~/.local/bin/molecule -s kvm idempotence
+		~/.local/bin/molecule verify -s kvm
 		"""
 	}
 
 	stage ("molecule destroy") {
 		sh """
-		~/.local/bin/molecule -s kvm idempotence
+		~/.local/bin/molecule destroy -s kvm
 		"""
 	}
 }
