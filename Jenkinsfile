@@ -15,7 +15,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "molecule test -s kvm"
+                sh """
+                which molecule
+                molecule test -s kvm
+                echo $PATH
+                echo $PWD
+                ls -la
+                """
             }
         }
     }
