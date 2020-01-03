@@ -21,7 +21,7 @@ pipeline {
             ls ~/.local/bin
             which molecule
             which yamllint
-            molecule test -s kvm
+            /var/lib/jenkins/.local/bin/molecule test -s kvm
             """
          }
       }
